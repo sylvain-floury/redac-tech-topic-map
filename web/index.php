@@ -1,6 +1,8 @@
 <?php
 
 use RedacTech\Csv;
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 
 $loader = require __DIR__.'/../vendor/autoload.php';
 
@@ -16,25 +18,25 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app['debug'] = true;
 
-$app->get('/', function (Silex\Application $app){
+$app->match('/', function (Request $request, Application $app){
     
-    $url  = "http://localhost:8080/omnigator/plugins/query/csv.jsp?processor=tolog";
-    $url .= '&query='. urlencode('using o for i"http://psi.ontopedia.net/" instance-of ($machine, o:machineadosespreemballees)?');
-    $url .= "&tm=machine___boissons_chaudes.xtm";
-    //$url .= '&query='. urlencode('using o for i"http://psi.ontopedia.net/" select $LAPTOP, $MARQUE, $RAM, $MAXIMUM_RAM from {o:a07($LAPTOP  : o:r07a, o:ref17 : o:r07b),o:a01($LAPTOP : o:r01b, $MARQUE: o:r01a),o:a07($LAPTOP  : o:r07a, $RAM: o:r07b),o:a13($LAPTOP  : o:r13b, $MAXIMUM_RAM : o:r13a)}?');
-    //$url .= "&tm=laptopssylvain.xtm";
-    
-     
-    $fileContent = utf8_encode(file_get_contents($url));
+    $query = new \RedacTech\Query();
+    $query->init($request->get('topic'));
+    $query->setQuery($request->get('query'));
     
     $csvManager = new Csv();
-    $csvManager->import($fileContent);
+    $csvManager->import($query->execute());
+    
+    $test = $request->get('query');
     
     return $app['twig']->render('index.html.twig', array(
-        'url' => $url,
+        'url' => $query->getQueryUrl(),
+        'query' => $request->get('query'),
+        'topic' => $request->get('topic'),
         'fileContent' => $csvManager->getCsvString(),
         'arrayContent' => $csvManager->export(),
     ));
-});
+})
+->method('GET|POST');
 
 $app->run();

@@ -2,6 +2,24 @@
 
 {% block content %}
 
+<form action="" method="POST" class="form-horizontal"  role="form">
+    <div class="form-group">
+        <label for="query" class="control-label">Query</label>
+        <textarea name="query" id="query" cols="50" rows="10" class="form-control">{{query|default('')}}</textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="query" class="control-label">Topic map</label>
+        <select name="topic" id="topic" class="form-control">
+            <option value="armouredvehicules.xtm">armouredvehicules.xtm</option>
+            <option value="tablette.xtm">tablette.xtm</option>
+        </select>
+    </div> 
+    
+    <input type="submit" value="executer" />
+</form>
+
+
 {{url}}
 
 {{dump(fileContent)}}
