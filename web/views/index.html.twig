@@ -1,55 +1,293 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
+<h1>Vous recherchez un ordinateur portable  :</h1>
+ 
+<form method="post" action="">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              Marque
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse ">
+          <div class="panel-body">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" value="ref40"> HP
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox2" value="ref33"> Toshiba
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox3" value="ref35"> Apple
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox4" value="ref47"> Samsung
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox5" value="ref41"> Acer
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox6" value="ref34"> Asus
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox7" value="ref46"> Packard-Bell
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox8" value="ref45"> Sony
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox9" value="ref42"> Compaq
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox10" value="ref36"> Lenovo
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox11" value="ref44"> Dell
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox12" value="ref43"> MSI
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Caractéristiques Techniques
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>CPU</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox13" value="ref49" name="CPU[]"> I3
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox14" value="ref50" name="CPU[]"> I5
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox15" value="ref51" name="CPU[]"> I7
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox16" value="ref57" name="CPU[]"> AMD Temas
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox17" value="ref56" name="CPU[]"> AMD Quadcore
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox18" value="ref52" name="CPU[]"> AMD E1
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox19" value="ref55" name="CPU[]"> ATOM
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox20" value="ref53" name="CPU[]"> Celeron
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox21" value="ref48" name="CPU[]"> Intel Duelcore
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox22" value="ref54" name="CPU[]"> Pentium
+                    </label>
+                </div>
+                <div class="col-md-4"> <h4>RAM</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox23" value="ref14" name="RAM[]"> 2Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox24" value="ref15" name="RAM[]"> 4Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox25" value="ref16" name="RAM[]"> 6Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox26" value="ref17" name="RAM[]"> 8Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox27" value="ref18" name="RAM[]"> 16Go
+                    </label>
+               </div> 
+               <div class="col-md-4"><h4>ROM</h4>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox28" value="ref89" name="ROM[]">32Go
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox29" value="ref19" name="ROM[]"> 128Go
+                   </label>  
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox30" value="ref120" name="ROM[]"> 250Go
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox31" value="ref21" name="ROM[]"> 500Go
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox32" value="ref99" name="ROM[]"> 512Go
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox33" value="ref22" name="ROM[]"> 750Go
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox34" value="ref24" name="ROM[]"> 1.5To
+                   </label>                         
+                </div>   
+            </div>
+            <div class="row">
+                <div class="col-md-4"><h4>Technologie disque dur</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox35" value="ref25" name="Technologie disque dur[]"> ATA
+                    </label> 
+                     <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox36" value="ref26" name="Technologie disque dur[]"> SSD
+                    </label>   
+                </div>
+                <div class="col-md-4"><h4>Mémoire Flash aditionnelle</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox37" value="ref89" name="Mémoire Flash aditionnelle[]"> 32Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox38" value="ref19" name="Mémoire Flash aditionnelle[]"> 128Go
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox39" value="ref101" name="Mémoire Flash aditionnelle[]"> 256Go
+                    </label>
+                </div>           
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <div class="row">
-            <div class="col-md-4">.col-md-1</div>
-            <div class="col-md-4">.col-md-1</div>
-            <div class="col-md-4">.col-md-1</div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+           Ecran et Image
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                   <h4>Taille de l'écran</h4>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox40" value="ref06" name="Taille de l'écran[]"> 11-14"
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox41" value="ref07" name="Taille de l'écran[]"> 15
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox42" value="ref09" name="Taille de l'écran[]"> 17
+                   </label>
+                   <label class="checkbox-inline">
+                     <input type="checkbox" id="inlineCheckbox43" value="ref10" name="Taille de l'écran[]"> 18
+                   </label>
+                </div>
+                <div class="col-md-4"> 
+                    <h4>Technologie de l'écran </h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox44" value="sc02" name="Technologie de l'écran[]"> Tactile
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox45" value="sc01" name="Technologie de l'écran[]"> Non Tactile
+                    </label>
+                </div> 
+                <div class="col-md-4"><h4>Résolution de l'écran</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox46" value="ref82" name="Résolution de l'écran[]"> 1280x720
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox47" value="ref90" name="Résolution de l'écran[]"> 1366x768
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox48" value="ref81" name="Résolution de l'écran[]"> 1440x900
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox49" value="ref80" name="Résolution de l'écran[]">  1600x900
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox50" value="ref78" name="Résolution de l'écran[]">  1920x1080
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox51" value="ref779" name="Résolution de l'écran[]">  2560x1600
+                    </label>                      
+                </div>           
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+           Design
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Couleurs</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox52" value="ref01" name="Couleurs[]"> Noir
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox53" value="ref05" name="Couleurs[]"> Blanc
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox54" value="ref03" name="Couleurs[]"> Argent
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox55" value="ref04" name="Couleurs[]"> Marron
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox56" value="ref02" name="Couleurs[]"> Gris
+                    </label>
+                </div>                
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+
+    <select class="form-control">
+      <option>Prix</option>
+      <option>moins de 500€</option>
+      <option>entre 500 et 700€</option>
+      <option>entre 700 et 1000€</option>
+      <option>entre 1000 et 1500€</option>
+      <option>plus de 1500€</option>
+    </select>
+    
+    <input type="hidden" name="topic" value="laptopssylvain.xtm"/>
+    
+    <input type="submit" value="Rechercher"/>
+</form>
+
+<table class="table">
+    <caption> Résultats </caption> 
+    <tr> 
+        <th> Référence </th> 
+        <th> Marque </th> 
+        <th> Prix </th> 
+    </tr> 
+    <tr> 
+        <td> MacBook Air 13.3 256Go (http://psi.ontopedia.net/03)</td> 
+        <td>Apple o:a01($MARQUE : o:r01a, o:03 : o:r01b)? </td> 
+        <td> 1299€ o:o01(o:o03, $PRIX)? </td> 
+    </tr> 
+</table>
+
+{{dump(query)}}
 
 {#url}}
 

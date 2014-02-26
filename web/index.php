@@ -1,6 +1,8 @@
 <?php
 
 use RedacTech\Csv;
+use RedacTech\QueryBuilder;
+use RedacTech\Query;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,9 +22,17 @@ $app['debug'] = true;
 
 $app->match('/', function (Request $request, Application $app){
     
-    $query = new \RedacTech\Query();
+    $query = new Query();
     $query->init($request->get('topic'));
-    $query->setQuery($request->get('query'));
+    
+    
+    //Caractéristiques
+    $cpu = $request->get('CPU');
+    
+    $queryBuilder = new QueryBuilder();
+    $queryBuilder->where($queryBuilder->addOr('a08', 'r08a', 'r08b', $cpu));
+    
+    $query->setQuery($queryBuilder->build());
     
     $csvManager = new Csv();
     $csvManager->import($query->execute());
@@ -31,7 +41,7 @@ $app->match('/', function (Request $request, Application $app){
     
     return $app['twig']->render('index.html.twig', array(
         'url' => $query->getQueryUrl(),
-        'query' => $request->get('query'),
+        'query' => $queryBuilder->build(),
         'topic' => $request->get('topic'),
         'fileContent' => $csvManager->getCsvString(),
         'arrayContent' => $csvManager->export(),
