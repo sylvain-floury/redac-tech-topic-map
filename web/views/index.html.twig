@@ -4,142 +4,128 @@
 <h1>Trouvez la machine à boissons chaudes idéale :</h1>
 
 <form method="post" action="">
+    
  <div class="panel-group" id="accordion">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Type de machine
+          Country
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
-        <select name="type" class="form-control">
-          <option>Faites votre choix</option>
-          <option>Cafetière classique</option>
-          <option>Machine à dosettes</option>
-          <option>Percolateur</option>
-        </select>
+        <label class="checkbox-inline">
+		<input type="radio" name="coutry" id="inlineradio1" value="option1"> France		  
+		</label>
+		<label class="checkbox-inline">
+		  <input type="radio" name="coutry" id="inlineradio2" value="option2"> Germany
+		</label>
+		<label class="checkbox-inline">
+		  <input type="radio" name="coutry" id="inlineradio3" value="option3"> USA
+		</label>
       </div>
     </div>
   </div>
+  
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Type de consommable
+          Vehicle Function
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse in">
+    <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1" name="consommable[]" value="option1"> Capsules
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" name="consommable[]" value="option2"> Dosettes
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox3" name="consommable[]" value="option3"> Café en grain
-        </label>
-        <label class="checkbox-inline">
-         <input type="checkbox" id="inlineCheckbox3" name="consommable[]" value="option4"> Café moulu
-        </label>
+		<input type="checkbox" id="inlineCheckbox25" value="option31"> Tank Destroyer</br>
+		</label>
+       <label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox26" value="option32"> Recon</br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox27" value="option33"> Assault Tank<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox28" value="option34"> Infantry Support<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox29" value="option35"> Assault Gun<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox30" value="option36"> Self Propeled Gun<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox31" value="option37"> Anti Tank<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox31" value="option38"> Fast Support<br>
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="inlineCheckbox31" value="option39"> Super Heavy Tank<br>
+		</label>
       </div>
     </div>
   </div>
+  
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Type de boissons réalisables
+          Activity Service
         </a>
       </h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse in">
-      <div class="panel-body">      
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1"  value="cafe"> Café
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" value="option2"> Chocolat
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox3" value="option3"> Boissons à base de lait
-        </label>
-        <label class="checkbox-inline">
-         <input type="checkbox" id="inlineCheckbox3" value="option4"> Thé et tisane
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-          Prix
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse in">
+    <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
-        <select class="form-control">
-          <option>Faites votre choix</option>
-          <option>moins de 50€</option>
-          <option>entre 51 et 100€</option>
-          <option>entre 101 et 200€</option>
-          <option>entre 201 et 300€</option>
-         <option>entre 301 et 400€</option>
-         <option>entre 401 et 500€</option>
-         <option>supérieur à 500€</option>
-        </select>
+        <label class="checkbox-inline">
+        <input type="radio" name="coutry" id="inlineradio1" value="option40"> Before 1939</br>		  
+        </label>
+        <label class="checkbox-inline">
+          <input type="radio" name="coutry" id="inlineradio2" value="option41"> 1939-1945</br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="radio" name="coutry" id="inlineradio3" value="option42"> After 1945</br>
+        </label>
       </div>
     </div>
   </div>
-
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-          Capacité du réservoir
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <select class="form-control">
-          <option>Faites votre choix</option>
-          <option>6 tasses</option>
-          <option>8 tasses</option>
-          <option>10 tasses</option>
-          <option>12 tasses</option>
-          <option>18 tasses</option>
-          <option>8 à 15 tasses</option>
-        </select>
-      </div>
-    </div>
-  </div>
-</div>
-    <input type="hidden" name="topic" value="machine___boissons_chaudes.xtm"/>
+      <input type="hidden" name="topic" value="machine___boissons_chaudes.xtm"/>
     
     <input type="submit" value="Rechercher"/>
-</form>
+</div><!-- fin nav -->
 
-<table class="table">
-    <caption> Résultats </caption> 
-    <tr> 
-        <th> Référence </th> 
-        <th> Marque </th> 
-        <th> Prix </th> 
-    </tr> 
-    <tr> 
-        <td> MacBook Air 13.3 256Go (http://psi.ontopedia.net/03)</td> 
-        <td>Apple o:a01($MARQUE : o:r01a, o:03 : o:r01b)? </td> 
-        <td> 1299€ o:o01(o:o03, $PRIX)? </td> 
-    </tr> 
-</table>
+<div id="content">
+
+	<div id="fiche">
+		<div id="image"><img src="images/pz3.png" /></div>
+        <div id="nom"><h3><p>Pzkpfw III Ausf J - Technical File</p><h3></div>
+       	<div class="rowfile"> <div class="caract">Manufacturers</div> <div class="data">Henschel - Man - MNH - Daimler Benz</div> </div>
+		<div class="rowfile">	<div class="caract">Role</div> <div class="data">Anti tank - Infantry Support</div> </div>
+        <div class="rowfile">	<div class="caract">Weight(tons)</div> <div class="data">21</div> </div>
+        <div class="rowfile">	<div class="caract">Max speed(km/h)</div> <div class="data">40</div></div>
+        
+	</div><!-- fin fiche-->
+
+	
+</div><!-- fin content -->
+
+
+<div id="list"><!-- future liste dynamique recherche sur ref -->
+	<div id="vehicles">
+	<ul>
+    <li><a href="Panzerkampfwagen III"/>Panzerkampfwagen III</li>
+    <li><a href="Panzerkampfwagen IV"/>Panzerkampfwagen IV</li>
+    <li><a href="Sdkfz 232"/>Sdkfz 232</li>
+    <li><a href="Sturmgeschutz IV"/>Sturmgeschutz IV</li>
+    </ul>
+
+	</div>
+</div>
+
+</form>
 
 {{dump(query)}}
 
