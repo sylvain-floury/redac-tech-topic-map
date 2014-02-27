@@ -11,11 +11,20 @@ class QueryBuilder {
     
     protected $where = array();
     
-    public function __construct() {
+    public function __construct($object= '$Entity') {
         $this->queryString = 'using o for i"http://psi.ontopedia.net/"';
-        $this->object = '$Tablette';
+        $this->object = $object;
     }
     
+    /**
+     * Gère une condition ou logique.
+     * 
+     * @param String $association
+     * @param String $rolePrincipal
+     * @param String $roleCritere
+     * @param String $values
+     * @return String
+     */
     public function addOr($association, $rolePrincipal, $roleCritere, $values) {
         if(is_array($values) && count($values) > 1) {
             $criteria = '{';
@@ -30,15 +39,30 @@ class QueryBuilder {
         }
     }
     
+    /**
+     * Gère une condition et logique
+     * 
+     * @param String $element
+     */
     public function addAnd($element) {
         $this->where[] =  $element;
     }
     
+    /**
+     * Gère la condition initiale.
+     * 
+     * @param String $element
+     */
     public function where($element) {
         $this->where[] =  $element;
     }
 
 
+    /**
+     * Construit la requete.
+     * 
+     * @return String
+     */
     public function build() {
         $queryString = 'using o for i"http://psi.ontopedia.net/" subject-identifier('.$this->object.', $ID),';
         
