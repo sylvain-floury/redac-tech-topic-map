@@ -49,4 +49,36 @@ $app->match('/', function (Request $request, Application $app){
 })
 ->method('GET|POST');
 
+$app->get('/detail', function (Request $request, Application $app){
+    $query = new Query();
+    $query->init('ordinateursportables2602.xtm'); //$request->get('topic')
+    $ref = 'o:03';
+    
+    $stringQuery = 'using o for i"http://psi.ontopedia.net/"
+o:a08($CPU: o:r08b, '.$ref.' : o:r08a),
+o:a17($FREQUENCE_DU_PROCESSEUR: o:r17a, '.$ref.' : o:r17b),
+o:a07($CAPACITE_RAM: o:r07b, '.$ref.' : o:r07a),
+o:a13($CAPACITE_MAX_RAM: o:r13a, '.$ref.' : o:r13b),
+o:a14($CAPACITE_DU_DD: o:r14b, '.$ref.' : o:r14a),
+o:a09($TECHNOLOGIE_DU_DD: o:r09b, '.$ref.' : o:r09a),
+o:a18($RESOLUTION_ECRAN: o:r18a, '.$ref.' : o:r18b),
+o:a19($CAMERA_RESOLUTION: o:r19a, '.$ref.' : o:r19b),
+o:a06($COULEUR: o:r06b, '.$ref.' : o:r06a),
+o:a01($FABRICANT: o:r01a, '.$ref.' : o:r01b),
+o:a03($OS_INSTALLE: o:r03b, '.$ref.' : o:r03a),
+{o:o02('.$ref.', $WEIGHT),
+o:o01('.$ref.', $PRICE)}?';
+    
+    $query->setQuery($stringQuery);
+    
+    $csvManager = new Csv();
+    $csvManager->import($query->execute());
+    
+    return $app['twig']->render('detail.html.twig', array(
+        'query' => $stringQuery,
+        'result' => $query->execute(),
+        'fiche' => $csvManager->export()
+    ));
+});
+
 $app->run();
