@@ -279,15 +279,20 @@
         <th> Référence </th> 
         <th> Marque </th> 
         <th> Prix </th> 
-    </tr> 
+    </tr>
+    
+    {% for entity in entities %}
     <tr> 
-        <td> MacBook Air 13.3 256Go (http://psi.ontopedia.net/03)</td> 
-        <td>Apple o:a01($MARQUE : o:r01a, o:03 : o:r01b)? </td> 
-        <td> 1299€ o:o01(o:o03, $PRIX)? </td> 
+        <td> {{entity.1}} (http://psi.ontopedia.net/03)</td> 
+        <td> {{entity.2}} </td> 
+        <td> {{entity.3}} </td> 
     </tr> 
+    {% endfor %}
 </table>
 
 {{dump(query)}}
+
+
 
 {#url}}
 
