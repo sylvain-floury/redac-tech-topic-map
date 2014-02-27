@@ -51,7 +51,7 @@ $app->match('/', function (Request $request, Application $app){
 
 $app->get('/detail', function (Request $request, Application $app){
     $query = new Query();
-    $query->init('ordinateursportables2602.xtm'); //$request->get('topic')
+    $query->init('machine___boissons_chaudes.xtm'); //$request->get('topic')
     $ref = 'o:03';
     
     $stringQuery = 'using o for i"http://psi.ontopedia.net/"
