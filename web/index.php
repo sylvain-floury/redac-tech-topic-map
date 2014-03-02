@@ -72,23 +72,23 @@ $app->match('/', function (Request $request, Application $app){
 
 $app->get('/fiche/{id}', function (Application $app, $id){
     $query = new Query();
-    $query->init('ordinateursportables2602.xtm');
+    $query->init('tablette.xtm');
     
     $queryString = 'using o for i"http://psi.ontopedia.net/"
-o:Autonomie($TABLETTE: o:auneautonomiede, $AUTONOMIE: o:estlautonomiede),
-o:Technologie($TABLETTE: o:utilisecommemoyendetransmission, $RESEAU: o:estlemoyendetransmissionutilisepar),
-o:SE($TABLETTE: o:utilisecommeSE, $SYSTEME: o:estleSEutilisepar),
-o:Taille($TABLETTE: o:acommetaille, $TAILLE: o:estlataillede),
-o:Resolutiondecamera($TABLETTE: o:auneresolutiondecamerade, $CAMERA: o:estlaresolutiondecamerade),
-o:Connectique($TABLETTE: o:acommeconnectique, $CONNECTIQUE: o:estlaconnectiquede),
-o:Capacitedestockage($TABLETTE: o:acommecapacite, $STOCKAGE: o:estlacapacitede),
-o:Marque($TABLETTE: o:apourmarque, $MARQUE: o:estlamarquede),
-o:Memoirevive($TABLETTE: o:acommememoirevive, $MEMOIREVIVE: o:estlamemoirevivede),
-o:Resolutiondecran($TABLETTE: o:acommedefinitiondecran, $RESOLUTION: o:estladefinitiondecrande),
-o:Prix($TABLETTE, $PRIX),
-o:Poids($TABLETTE, $POIDS),
-o:Dimensions($TABLETTE, $DIMENSIONS),
-o:Coeurs($TABLETTE, $NOMBREDECOEURS) ?';
+o:Autonomie(o:'.$id.': o:auneautonomiede, $AUTONOMIE: o:estlautonomiede),
+o:Technologie(o:'.$id.': o:utilisecommemoyendetransmission, $RESEAU: o:estlemoyendetransmissionutilisepar),
+o:SE(o:'.$id.': o:utilisecommeSE, $SYSTEME: o:estleSEutilisepar),
+o:Taille(o:'.$id.': o:acommetaille, $TAILLE: o:estlataillede),
+o:Resolutiondecamera(o:'.$id.': o:auneresolutiondecamerade, $CAMERA: o:estlaresolutiondecamerade),
+o:Connectique(o:'.$id.': o:acommeconnectique, $CONNECTIQUE: o:estlaconnectiquede),
+o:Capacitedestockage(o:'.$id.': o:acommecapacite, $STOCKAGE: o:estlacapacitede),
+o:Marque(o:'.$id.': o:apourmarque, $MARQUE: o:estlamarquede),
+o:Memoirevive(o:'.$id.': o:acommememoirevive, $MEMOIREVIVE: o:estlamemoirevivede),
+o:Resolutiondecran(o:'.$id.': o:acommedefinitiondecran, $RESOLUTION: o:estladefinitiondecrande),
+o:Prix(o:'.$id.', $PRIX),
+o:Poids(o:'.$id.', $POIDS),
+o:Dimensions(o:'.$id.', $DIMENSIONS),
+o:Coeurs(o:'.$id.', $NOMBREDECOEURS) ?';
     
     $query->setQuery($queryString);
     
@@ -99,7 +99,7 @@ o:Coeurs($TABLETTE, $NOMBREDECOEURS) ?';
     
     return $app['twig']->render('fiche.html.twig', array(
         'query' => $queryString,
-        'fiche' => $fiche[1]
+        'fiche' => $fiche
     ));
 });
 
