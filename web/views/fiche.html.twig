@@ -1,130 +1,78 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-
-<h1>Fiche produit  :</h1>
-
-{# query }}
-
-{{ dump(fiche) #}
-    
- <h4> MacBook Air 13.3 256Go</h4>
- 
-<div class="table-responsive">
-  <table class="table">
-     <caption> GENERAL </caption> 
-  <tr> 
- <th> Caractéristique</th> 
- <th> Valeur </th> 
-
-  </tr> 
-  <tr> 
- <td> Marque </td> 
- <td> {{fiche.6}} </td>
- 
-  </tr>
-   <tr> 
- <td> Système d'exploitation </td> 
- <td> {{fiche.10}} </td> 
- 
-  </tr>
-   <tr> 
- <td> Prix </td> 
- <td> {{fiche.1}} </td> 
-
+<div class="fiche">
+<img src="img/acer.jpg"/>
+<table>
+   <tr class="gris">
+       <th rowspan="4">Général</th>
+       <td>Marque</td>
+       <td>Samsung</td>
    </tr>
- <tr> 
- <td> Couleurs </td> 
- <td> {{fiche.12}} </td> 
-
-  </tr>
-
-
-  </table>
-  <table class="table">
-     <caption> CARACTERISTIQUES TECHNIQUES </caption> 
-  <tr> 
- <th> Caractéristique</th> 
- <th> Valeur </th> 
-
-  </tr> 
-  <tr> 
- <td> Processeur </td> 
- <td> {{fiche.9}} </td>
- 
-  </tr>
-  </tr>
- <tr> 
- <td> Fréquence du processeur  </td> 
- <td> {{fiche.8}} Go </td> 
-
-  </tr>
-  </tr>
- <tr> 
- <td> RAM maximum   </td> 
- <td> {{fiche.4}} Go </td> 
-
-  </tr>
-  
-  
-   <tr> 
- <td> Technologie disque dur </td> 
- <td> {{fiche.0}} </td> 
- 
-  </tr>
-   <tr> 
- <td> Capacité disque dur </td> 
- <td> {{fiche.5}}Go </td> 
-
+   <tr class="gris">
+       <td>Prix</td>
+       <td>100€</td>
    </tr>
- <tr> 
- <td> RAM </td> 
- <td> {{fiche.3}}Go </td> 
-
-  </tr>
-  
-  </tr>
-
-  
-  </tr>
- <tr> 
- <td> Mémoire FLASH aditionnelle  </td> 
- <td> - </td> 
-
-  </tr>
-  
-    </tr> 
-
-  
-
-  </table>
-  
-  
-    <table class="table">
-     <caption> ECRAN ET IMAGE </caption> 
-<tr> 
- <th> Caractéristique</th> 
- <th> Valeur </th> 
-
-  </tr>
-  <tr> 
- <td> Taille de l'écran</td> 
- <td> todo </td> 
-
-  </tr> 
-  <tr> 
- <td> Résolution de l'écran </td> 
- <td> {{fiche.2}} </td>
- 
-  </tr>
-   <tr> 
- <td> Technologie de l'écran </td> 
- <td> todo </td> 
- 
-  </tr>
-   <tr> 
- <td> Résolution de la caméra</td> 
- <td> {{fiche.11}} </td> 
-
-  </table>
+   <tr class="gris">
+       <td>Système d'exploitation</td>
+       <td>Android 4.1</td>
+   </tr>
+   <tr class="gris">
+       <td>Nombre de coeurs</td>
+       <td>2</td>
+   </tr>
+   
+   <tr class="beige">
+		<th rowspan="2">Ecran</th>
+		<td>Taille de l'écran</td>
+		<td>8"</td>
+	</tr>
+	<tr class="beige">
+       <td>Résolution écran</td>
+       <td>1280x800</td>
+   </tr>
+    <tr class="gris">
+		<th rowspan="2">Multimédia</th>
+		<td>Technologie réseau</td>
+		<td>Wifi</td>
+	</tr>
+	<tr class="gris">
+		<td>Résolution de caméra</td>
+		<td>5 Mégapixels</td>
+	</tr>
+   
+	<tr class="beige">
+		<th>Connectique</th>
+		<td>Connectique</td>
+		<td>USB / SD
+	</tr>
+	
+	<tr class="gris">
+		<th rowspan="2">Mémoire</th>
+		<td>Capacité de stockage</td>
+		<td>16Go</td>
+	</tr>
+	
+	<tr class="gris">
+		
+		<td>Mémoire vive</td>
+		<td>1,5Go</td>
+	</tr>
+	<tr class="beige">
+		<th>Autonomie</th>
+		<td>Heures d'autonomie</td>
+		<td>11h</td>
+	</tr>
+	<tr class="gris">
+		<th rowspan="2">Dimensions et poids</th>
+		<td>Dimensions</td>
+		<td>12,4x21x0,7</td>
+	</tr>
+	<tr class="gris">
+		<td>Poids</td>
+		<td>314g</td>
+	</tr>
+	
+</table>
+</div>
 {% endblock %}

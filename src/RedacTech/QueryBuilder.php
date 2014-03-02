@@ -11,6 +11,8 @@ class QueryBuilder {
     
     protected $where = array();
     
+    protected $join = array();
+    
     public function __construct($object= '$Entity') {
         $this->queryString = 'using o for i"http://psi.ontopedia.net/"';
         $this->object = $object;
