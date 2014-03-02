@@ -8,25 +8,6 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Type de machine
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <select name="type" class="form-control">
-          <option>Faites votre choix</option>
-          <option>Cafetière classique</option>
-          <option>Machine à dosettes</option>
-          <option>Percolateur</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
           Type de consommable
         </a>
@@ -35,16 +16,19 @@
     <div id="collapseTwo" class="panel-collapse collapse in">
       <div class="panel-body">
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1" name="consommable[]" value="option1"> Capsules
+          <input id="inlineCheckbox1" value="capsules" type="checkbox" name="consommable[]"> Capsules
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" name="consommable[]" value="option2"> Dosettes
+          <input id="inlineCheckbox2" value="rigides" type="checkbox" name="consommable[]"> Dosettes rigides
+        </label>
+		<label class="checkbox-inline">
+          <input id="inlineCheckbox2" value="souples" type="checkbox" name="consommable[]"> Dosettes souples
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox3" name="consommable[]" value="option3"> Café en grain
+          <input id="inlineCheckbox3" value="grain" type="checkbox" name="consommable[]"> Café en grain
         </label>
         <label class="checkbox-inline">
-         <input type="checkbox" id="inlineCheckbox3" name="consommable[]" value="option4"> Café moulu
+         <input  id="inlineCheckbox3" value="cafemoulu" type="checkbox" name="consommable[]"> Café moulu
         </label>
       </div>
     </div>
@@ -60,16 +44,19 @@
     <div id="collapseThree" class="panel-collapse collapse in">
       <div class="panel-body">      
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1"  value="cafe"> Café
+          <input type="checkbox" id="inlineCheckbox1" name="preparation[]" value="cafe"> Café
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" value="option2"> Chocolat
+          <input type="checkbox" id="inlineCheckbox2" name="preparation[]" value="chocolat"> Chocolat
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox3" value="option3"> Boissons à base de lait
+          <input type="checkbox" id="inlineCheckbox3" name="preparation[]" value="boissonsabasedelaitetdecafe"> Boissons à base de lait et de café
         </label>
         <label class="checkbox-inline">
-         <input type="checkbox" id="inlineCheckbox3" value="option4"> Thé et tisane
+         <input type="checkbox" id="inlineCheckbox3" name="preparation[]" value="tisane"> Tisane
+        </label>
+        <label class="checkbox-inline">
+         <input type="checkbox" id="inlineCheckbox3" name="preparation[]" value="the"> Thé
         </label>
       </div>
     </div>

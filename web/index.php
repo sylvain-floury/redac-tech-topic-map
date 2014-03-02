@@ -23,14 +23,17 @@ $app['debug'] = true;
 $app->match('/', function (Request $request, Application $app){
     
     $query = new Query();
-    $query->init($request->get('topic'));
+    $query->init('machine___boissons_chaudes.xtm');
     
     
     //Caractéristiques
-    $cpu = $request->get('CPU');
+    $consommable = $request->get('consommable');
+    $preparation = $request->get('preparation');
     
-    $queryBuilder = new QueryBuilder();
-    $queryBuilder->where($queryBuilder->addOr('a08', 'r08a', 'r08b', $cpu));
+    
+    $queryBuilder = new QueryBuilder('$machine');
+    $queryBuilder->select('$ID', '$machine');
+    $queryBuilder->where($queryBuilder->addOr('consommable', 'apourconsommable', 'estleconsommablede', $consommable));
     
     $query->setQuery($queryBuilder->build());
     
