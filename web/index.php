@@ -23,61 +23,74 @@ $app['debug'] = true;
 $app->match('/', function (Request $request, Application $app){
     
     $query = new Query();
-    $query->init($request->get('topic'));
+    $query->init('armouredvehicules.xtm');
     
     
     //Caractéristiques
-    $cpu = $request->get('CPU');
+    $country = $request->get('country');
+    $type = $request->get('type');
+    $date = $request->get('date');
     
-    $queryBuilder = new QueryBuilder();
-    $queryBuilder->where($queryBuilder->addOr('a08', 'r08a', 'r08b', $cpu));
+    $queryBuilder = new QueryBuilder('$blinde');
+    $queryBuilder->select('$ID', '$blinde');
+    $queryBuilder->where($queryBuilder->addOr('origin', 'whosecountryis', 'isthecountryof', $country));
+    $queryBuilder->where($queryBuilder->addOr('category', 'whoseroleis', 'istheroleof', $type));
+    $queryBuilder->where($queryBuilder->addOr('activity', 'whosefirstserv', 'isthefirstof', $date));
     
     $query->setQuery($queryBuilder->build());
     
     $csvManager = new Csv();
     $csvManager->import($query->execute());
     
+    $result = $csvManager->export();
+    
     $test = $request->get('query');
     
     return $app['twig']->render('index.html.twig', array(
         'url' => $query->getQueryUrl(),
         'query' => $queryBuilder->build(),
-        'topic' => $request->get('topic'),
         'fileContent' => $csvManager->getCsvString(),
-        'arrayContent' => $csvManager->export(),
+        'headers' => array_shift($result),
+        'entities' => $result,
     ));
 })
 ->method('GET|POST');
 
-$app->get('/detail', function (Request $request, Application $app){
+$app->get('/fiche/{id}', function (Application $app, $id){
     $query = new Query();
-    $query->init('machine___boissons_chaudes.xtm'); //$request->get('topic')
-    $ref = 'o:03';
+    $query->init('armouredvehicules.xtm');
     
     $stringQuery = 'using o for i"http://psi.ontopedia.net/"
-o:a08($CPU: o:r08b, '.$ref.' : o:r08a),
-o:a17($FREQUENCE_DU_PROCESSEUR: o:r17a, '.$ref.' : o:r17b),
-o:a07($CAPACITE_RAM: o:r07b, '.$ref.' : o:r07a),
-o:a13($CAPACITE_MAX_RAM: o:r13a, '.$ref.' : o:r13b),
-o:a14($CAPACITE_DU_DD: o:r14b, '.$ref.' : o:r14a),
-o:a09($TECHNOLOGIE_DU_DD: o:r09b, '.$ref.' : o:r09a),
-o:a18($RESOLUTION_ECRAN: o:r18a, '.$ref.' : o:r18b),
-o:a19($CAMERA_RESOLUTION: o:r19a, '.$ref.' : o:r19b),
-o:a06($COULEUR: o:r06b, '.$ref.' : o:r06a),
-o:a01($FABRICANT: o:r01a, '.$ref.' : o:r01b),
-o:a03($OS_INSTALLE: o:r03b, '.$ref.' : o:r03a),
-{o:o02('.$ref.', $WEIGHT),
-o:o01('.$ref.', $PRICE)}?';
+select $Country,$Role,$Crew,$Activity,$Gear,$Weight,$Power,$Autonomy,$Height,$Length,$Width from
+{
+o:origin(o:'.$id.': o:whosecountryis, $Country: o:isthecountryof),
+o:category(o:'.$id.': o:whoseroleis, $Role: o:istheroleof),
+o:mouvement(o:'.$id.': o:whoserunning, $Gear: o:istherunninggear),
+o:activity(o:'.$id.': o:whosefirstserv, $Activity: o:isthefirstof),
+o:crew(o:'.$id.': o:whosenumberis, $Crew: o:isnumbof)
+},
+
+
+o:power(o:'.$id.',$Power),
+o:autonomy(o:'.$id.',$Autonomy),
+o:length(o:'.$id.',$Length),
+o:weight(o:'.$id.',$Weight),
+o:height(o:'.$id.',$Height),
+o:width(o:'.$id.',$Width)?';
     
     $query->setQuery($stringQuery);
     
     $csvManager = new Csv();
     $csvManager->import($query->execute());
     
+    $result = $csvManager->export();
+    
+    array_shift($result);
+   
     return $app['twig']->render('detail.html.twig', array(
         'query' => $stringQuery,
         'result' => $query->execute(),
-        'fiche' => $csvManager->export()
+        'fiche' => array_shift($result)
     ));
 });
 

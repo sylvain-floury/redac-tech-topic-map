@@ -1,6 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
+
 <h1>Trouvez la machine à boissons chaudes idéale :</h1>
 
 <form method="post" action="">
@@ -17,14 +18,14 @@
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
         <label class="checkbox-inline">
-		<input type="radio" name="coutry" id="inlineradio1" value="option1"> France		  
-		</label>
-		<label class="checkbox-inline">
-		  <input type="radio" name="coutry" id="inlineradio2" value="option2"> Germany
-		</label>
-		<label class="checkbox-inline">
-		  <input type="radio" name="coutry" id="inlineradio3" value="option3"> USA
-		</label>
+          <input type="radio" name="country[]" id="inlineradio1" value="france"> France		  
+        </label>
+        <label class="checkbox-inline">
+          <input type="radio" name="country[]" id="inlineradio2" value="germany"> Germany
+        </label>
+        <label class="checkbox-inline">
+          <input type="radio" name="country[]" id="inlineradio3" value="usa"> USA
+        </label>
       </div>
     </div>
   </div>
@@ -40,32 +41,32 @@
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
         <label class="checkbox-inline">
-		<input type="checkbox" id="inlineCheckbox25" name="type[]" value="option31"> Tank Destroyer</br>
-		</label>
-       <label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox26" value="option32"> Recon</br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox27" value="option33"> Assault Tank<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox28" value="option34"> Infantry Support<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox29" value="option35"> Assault Gun<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox30" value="option36"> Self Propeled Gun<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox31" value="option37"> Anti Tank<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox31" value="option38"> Fast Support<br>
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" id="inlineCheckbox31" value="option39"> Super Heavy Tank<br>
-		</label>
+		<input type="checkbox" id="inlineCheckbox25" name="type[]" value="td"> Tank Destroyer</br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox26" name="type[]" value="recon"> Recon</br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox27" name="type[]" value="assault"> Assault Tank<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox28" name="type[]" value="support"> Infantry Support<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox29" name="type[]" value="ag"> Assault Gun<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox30" name="type[]" value="spg"> Self Propeled Gun<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox31" name="type[]" value="option37"> Anti Tank<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox31" name="type[]" value="fastsp"> Fast Support<br>
+        </label>
+        <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox31" name="type[]" value="sht"> Super Heavy Tank<br>
+        </label>
       </div>
     </div>
   </div>
@@ -81,13 +82,13 @@
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
         <label class="checkbox-inline">
-        <input type="radio" name="coutry" id="inlineradio1" value="option40"> Before 1939</br>		  
+        <input type="radio" name="date[]" id="inlineradio1" value="b39"> Before 1939</br>		  
         </label>
         <label class="checkbox-inline">
-          <input type="radio" name="coutry" id="inlineradio2" value="option41"> 1939-1945</br>
+          <input type="radio" name="date[]" id="inlineradio2" value="3945"> 1939-1945</br>
         </label>
         <label class="checkbox-inline">
-          <input type="radio" name="coutry" id="inlineradio3" value="option42"> After 1945</br>
+          <input type="radio" name="date[]" id="inlineradio3" value="a45"> After 1945</br>
         </label>
       </div>
     </div>
@@ -114,20 +115,17 @@
 
 
 <div id="list"><!-- future liste dynamique recherche sur ref -->
-	<div id="vehicles">
-	<ul>
-    <li><a href="Panzerkampfwagen III"/>Panzerkampfwagen III</li>
-    <li><a href="Panzerkampfwagen IV"/>Panzerkampfwagen IV</li>
-    <li><a href="Sdkfz 232"/>Sdkfz 232</li>
-    <li><a href="Sturmgeschutz IV"/>Sturmgeschutz IV</li>
-    </ul>
-
-	</div>
+    <div id="vehicles">
+        <ul>
+            {% for entity in entities %}
+                <li><a href="Panzerkampfwagen III"/>{{entity.1}} {{entity.0}}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
 </form>
 
-{{dump(query)}}
 
 {#url}}
 
