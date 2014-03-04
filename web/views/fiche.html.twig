@@ -1,0 +1,130 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+<h1>Fiche produit  :</h1>
+
+{# query }}
+
+{{ dump(fiche) #}
+    
+ <h4> MacBook Air 13.3 256Go</h4>
+ 
+<div class="table-responsive">
+  <table class="table">
+     <caption> GENERAL </caption> 
+  <tr> 
+ <th> Caractéristique</th> 
+ <th> Valeur </th> 
+
+  </tr> 
+  <tr> 
+ <td> Marque </td> 
+ <td> {{fiche.6}} </td>
+ 
+  </tr>
+   <tr> 
+ <td> Système d'exploitation </td> 
+ <td> {{fiche.10}} </td> 
+ 
+  </tr>
+   <tr> 
+ <td> Prix </td> 
+ <td> {{fiche.1}} </td> 
+
+   </tr>
+ <tr> 
+ <td> Couleurs </td> 
+ <td> {{fiche.12}} </td> 
+
+  </tr>
+
+
+  </table>
+  <table class="table">
+     <caption> CARACTERISTIQUES TECHNIQUES </caption> 
+  <tr> 
+ <th> Caractéristique</th> 
+ <th> Valeur </th> 
+
+  </tr> 
+  <tr> 
+ <td> Processeur </td> 
+ <td> {{fiche.9}} </td>
+ 
+  </tr>
+  </tr>
+ <tr> 
+ <td> Fréquence du processeur  </td> 
+ <td> {{fiche.8}} Go </td> 
+
+  </tr>
+  </tr>
+ <tr> 
+ <td> RAM maximum   </td> 
+ <td> {{fiche.4}} Go </td> 
+
+  </tr>
+  
+  
+   <tr> 
+ <td> Technologie disque dur </td> 
+ <td> {{fiche.0}} </td> 
+ 
+  </tr>
+   <tr> 
+ <td> Capacité disque dur </td> 
+ <td> {{fiche.5}}Go </td> 
+
+   </tr>
+ <tr> 
+ <td> RAM </td> 
+ <td> {{fiche.3}}Go </td> 
+
+  </tr>
+  
+  </tr>
+
+  
+  </tr>
+ <tr> 
+ <td> Mémoire FLASH aditionnelle  </td> 
+ <td> - </td> 
+
+  </tr>
+  
+    </tr> 
+
+  
+
+  </table>
+  
+  
+    <table class="table">
+     <caption> ECRAN ET IMAGE </caption> 
+<tr> 
+ <th> Caractéristique</th> 
+ <th> Valeur </th> 
+
+  </tr>
+  <tr> 
+ <td> Taille de l'écran</td> 
+ <td> todo </td> 
+
+  </tr> 
+  <tr> 
+ <td> Résolution de l'écran </td> 
+ <td> {{fiche.2}} </td>
+ 
+  </tr>
+   <tr> 
+ <td> Technologie de l'écran </td> 
+ <td> todo </td> 
+ 
+  </tr>
+   <tr> 
+ <td> Résolution de la caméra</td> 
+ <td> {{fiche.11}} </td> 
+
+  </table>
+{% endblock %}

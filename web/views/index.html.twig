@@ -142,21 +142,21 @@
             <div class="row">
                 <div class="col-md-4"><h4>Technologie disque dur</h4>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox35" value="ref25" name="Technologie disque dur[]"> ATA
+                      <input type="checkbox" id="inlineCheckbox35" value="ref25" name="HDD[]"> ATA
                     </label> 
                      <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox36" value="ref26" name="Technologie disque dur[]"> SSD
+                      <input type="checkbox" id="inlineCheckbox36" value="ref26" name="HDD[]"> SSD
                     </label>   
                 </div>
                 <div class="col-md-4"><h4>Mémoire Flash aditionnelle</h4>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox37" value="ref89" name="Mémoire Flash aditionnelle[]"> 32Go
+                      <input type="checkbox" id="inlineCheckbox37" value="ref89" name="type-memoire[]"> 32Go
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox38" value="ref19" name="Mémoire Flash aditionnelle[]"> 128Go
+                      <input type="checkbox" id="inlineCheckbox38" value="ref19" name="type-memoire[]"> 128Go
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox39" value="ref101" name="Mémoire Flash aditionnelle[]"> 256Go
+                      <input type="checkbox" id="inlineCheckbox39" value="ref101" name="type-memoire[]"> 256Go
                     </label>
                 </div>           
             </div>
@@ -178,45 +178,45 @@
                 <div class="col-md-4">
                    <h4>Taille de l'écran</h4>
                    <label class="checkbox-inline">
-                     <input type="checkbox" id="inlineCheckbox40" value="ref06" name="Taille de l'écran[]"> 11-14"
+                     <input type="checkbox" id="inlineCheckbox40" value="ref06" name="taille-ecran[]"> 11-14"
                    </label>
                    <label class="checkbox-inline">
-                     <input type="checkbox" id="inlineCheckbox41" value="ref07" name="Taille de l'écran[]"> 15
+                     <input type="checkbox" id="inlineCheckbox41" value="ref07" name="taille-ecran[]"> 15
                    </label>
                    <label class="checkbox-inline">
-                     <input type="checkbox" id="inlineCheckbox42" value="ref09" name="Taille de l'écran[]"> 17
+                     <input type="checkbox" id="inlineCheckbox42" value="ref09" name="taille-ecran[]"> 17
                    </label>
                    <label class="checkbox-inline">
-                     <input type="checkbox" id="inlineCheckbox43" value="ref10" name="Taille de l'écran[]"> 18
+                     <input type="checkbox" id="inlineCheckbox43" value="ref10" name="taille-ecran[]"> 18
                    </label>
                 </div>
                 <div class="col-md-4"> 
                     <h4>Technologie de l'écran </h4>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox44" value="sc02" name="Technologie de l'écran[]"> Tactile
+                      <input type="checkbox" id="inlineCheckbox44" value="sc02" name="techno-ecran[]"> Tactile
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox45" value="sc01" name="Technologie de l'écran[]"> Non Tactile
+                      <input type="checkbox" id="inlineCheckbox45" value="sc01" name="techno-ecran[]"> Non Tactile
                     </label>
                 </div> 
                 <div class="col-md-4"><h4>Résolution de l'écran</h4>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox46" value="ref82" name="Résolution de l'écran[]"> 1280x720
+                      <input type="checkbox" id="inlineCheckbox46" value="ref82" name="resolution-ecran[]"> 1280x720
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox47" value="ref90" name="Résolution de l'écran[]"> 1366x768
+                      <input type="checkbox" id="inlineCheckbox47" value="ref90" name="resolution-ecran[]"> 1366x768
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox48" value="ref81" name="Résolution de l'écran[]"> 1440x900
+                      <input type="checkbox" id="inlineCheckbox48" value="ref81" name="resolution-ecran[]"> 1440x900
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox49" value="ref80" name="Résolution de l'écran[]">  1600x900
+                      <input type="checkbox" id="inlineCheckbox49" value="ref80" name="resolution-ecran[]">  1600x900
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox50" value="ref78" name="Résolution de l'écran[]">  1920x1080
+                      <input type="checkbox" id="inlineCheckbox50" value="ref78" name="resolution-ecran[]">  1920x1080
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox51" value="ref779" name="Résolution de l'écran[]">  2560x1600
+                      <input type="checkbox" id="inlineCheckbox51" value="ref779" name="resolution-ecran[]">  2560x1600
                     </label>                      
                 </div>           
              </div>
@@ -279,17 +279,23 @@
         <th> Référence </th> 
         <th> Marque </th> 
         <th> Prix </th> 
-    </tr> 
+    </tr>
+    
+    {% for entity in entities %}
     <tr> 
-        <td> MacBook Air 13.3 256Go (http://psi.ontopedia.net/03)</td> 
-        <td>Apple o:a01($MARQUE : o:r01a, o:03 : o:r01b)? </td> 
-        <td> 1299€ o:o01(o:o03, $PRIX)? </td> 
+        <td> <a href="index.php/fiche/{{entity.0|replace({'http://psi.ontepedia.net/': ''})}}">{{entity.1}}</a></td> 
+        <td> {{entity.2}} </td> 
+        <td> {{entity.3}} </td> 
     </tr> 
+    {% endfor %}
 </table>
 
-{{dump(query)}}
+
+
+
 
 {#url}}
+{{dump(query)}}
 
 {{dump(fileContent)}}
 
