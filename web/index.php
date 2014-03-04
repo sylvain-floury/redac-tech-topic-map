@@ -56,18 +56,20 @@ $app->match('/', function (Request $request, Application $app){
 })
 ->method('GET|POST');
 
-$app->get('/fiche/{id}', function (Application $app, $id){
+$app->get('/fiche/{id}/{name}', function (Application $app, $id, $name){
     $query = new Query();
     $query->init('armouredvehicules.xtm');
     
     $stringQuery = 'using o for i"http://psi.ontopedia.net/"
-select $Country,$Role,$Crew,$Activity,$Gear,$Weight,$Power,$Autonomy,$Height,$Length,$Width from
+select $Country,$Role,$Crew,$Activity,$Gear,$Weight,$Power,$Autonomy,$Height,$Length,$Width,$Manufacturer,$Armement from
 {
 o:origin(o:'.$id.': o:whosecountryis, $Country: o:isthecountryof),
 o:category(o:'.$id.': o:whoseroleis, $Role: o:istheroleof),
 o:mouvement(o:'.$id.': o:whoserunning, $Gear: o:istherunninggear),
 o:activity(o:'.$id.': o:whosefirstserv, $Activity: o:isthefirstof),
-o:crew(o:'.$id.': o:whosenumberis, $Crew: o:isnumbof)
+o:crew(o:'.$id.': o:whosenumberis, $Crew: o:isnumbof),
+o:production(o:'.$id.': o:whoseproduceris, $Manufacturer: o:produce),
+o:armement(o:'.$id.': o:whosegunis, $Armement: o:isthegunof)
 },
 
 
@@ -90,6 +92,7 @@ o:width(o:'.$id.',$Width)?';
     return $app['twig']->render('detail.html.twig', array(
         'query' => $stringQuery,
         'result' => $query->execute(),
+        'name'  => $name,
         'fiche' => array_shift($result)
     ));
 });

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Trouvez la machine à boissons chaudes idéale :</h1>
+<h1>Armoured vehicles of the 20th Century</h1>
 
 <form method="post" action="">
     
@@ -118,7 +118,7 @@
     <div id="vehicles">
         <ul>
             {% for entity in entities %}
-            <li><a href="#" onclick="$('#fiche').load('/redac-tech-topic-map/web/index.php/fiche/{{(entity.0)|replace({'http://psi.ontopedia.net/': ''}) }}')">{{entity.1}}</a></li>
+            <li><a href="#" onclick="$('#fiche').load('/redac-tech-topic-map/web/index.php/fiche/{{(entity.0)|replace({'http://psi.ontopedia.net/': ''}) }}/{{(entity.1)|e('url')}}')">{{entity.1}}</a></li>
             {% endfor %}
         </ul>
     </div>
