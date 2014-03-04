@@ -118,7 +118,7 @@
     <div id="vehicles">
         <ul>
             {% for entity in entities %}
-            <li><a href="#" onclick="$('#fiche').load('/redac-tech-topic-map/web/index.php/fiche/{{entity.0 | replace({'http://psi.ontepedia.net/': ''}) }}')">{{entity.1}} {{entity.0 |replace({'psi.ontepedia.net': ''}) }}</a></li>
+            <li><a href="#" onclick="$('#fiche').load('/redac-tech-topic-map/web/index.php/fiche/{{(entity.0)|replace({'http://psi.ontopedia.net/': ''}) }}')">{{entity.1}}</a></li>
             {% endfor %}
         </ul>
     </div>
