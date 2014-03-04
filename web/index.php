@@ -99,7 +99,7 @@ o:Coeurs(o:'.$id.', $NOMBREDECOEURS) ?';
     
     return $app['twig']->render('fiche.html.twig', array(
         'query' => $queryString,
-        'fiche' => $fiche
+        'fiche' => $fiche[1]
     ));
 });
 

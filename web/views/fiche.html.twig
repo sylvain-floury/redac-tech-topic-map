@@ -1,5 +1,3 @@
-{% extends "layout.html.twig" %}
-
 {% block content %}
 <div class="fiche">
 <img src="img/acer.jpg"/>
@@ -7,70 +5,70 @@
    <tr class="gris">
        <th rowspan="4">Général</th>
        <td>Marque</td>
-       <td>Samsung</td>
+       <td>{{fiche.3}}</td>
    </tr>
    <tr class="gris">
        <td>Prix</td>
-       <td>100€</td>
+       <td>{{fiche.12}}</td>
    </tr>
    <tr class="gris">
        <td>Système d'exploitation</td>
-       <td>Android 4.1</td>
+       <td>{{fiche.13}}</td>
    </tr>
    <tr class="gris">
        <td>Nombre de coeurs</td>
-       <td>2</td>
+       <td>{{fiche.7}}</td>
    </tr>
    
    <tr class="beige">
 		<th rowspan="2">Ecran</th>
 		<td>Taille de l'écran</td>
-		<td>8"</td>
+		<td>{{fiche.2}}</td>
 	</tr>
 	<tr class="beige">
        <td>Résolution écran</td>
-       <td>1280x800</td>
+       <td>{{fiche.11}}</td>
    </tr>
     <tr class="gris">
 		<th rowspan="2">Multimédia</th>
 		<td>Technologie réseau</td>
-		<td>Wifi</td>
+		<td>{{fiche.9}}</td>
 	</tr>
 	<tr class="gris">
 		<td>Résolution de caméra</td>
-		<td>5 Mégapixels</td>
+		<td>{{fiche.3}}</td>
 	</tr>
    
 	<tr class="beige">
 		<th>Connectique</th>
 		<td>Connectique</td>
-		<td>USB / SD
+                <td>{{fiche.8}}</td>
 	</tr>
 	
 	<tr class="gris">
 		<th rowspan="2">Mémoire</th>
 		<td>Capacité de stockage</td>
-		<td>16Go</td>
+		<td>{{fiche.6}}</td>
 	</tr>
 	
 	<tr class="gris">
 		
 		<td>Mémoire vive</td>
-		<td>1,5Go</td>
+		<td>{{fiche.4}}</td>
 	</tr>
 	<tr class="beige">
 		<th>Autonomie</th>
 		<td>Heures d'autonomie</td>
-		<td>11h</td>
+		<td>{{fiche.5}}</td>
 	</tr>
 	<tr class="gris">
 		<th rowspan="2">Dimensions et poids</th>
 		<td>Dimensions</td>
-		<td>12,4x21x0,7</td>
+		<td>{{fiche.1}}</td>
 	</tr>
 	<tr class="gris">
 		<td>Poids</td>
-		<td>314g</td>
+		<td>{{fiche.10}}</td>
 	</tr>
 	
 </table>

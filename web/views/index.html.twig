@@ -306,32 +306,28 @@
 <!-- Form Name -->
 <legend>Choix de la tablette tactile</legend>
 
-<!-- Select Multiple -->
-<div class="control-group">
-  <label class="control-label" for="SelectTab">Tablette tactile</label>
-  <div class="controls">
-    <select id="SelectTab" name="SelectTab" class="input-xlarge" multiple="multiple">
-      <option>Acer Iconia A1-810</option>
-      <option>Archos ChefPad 8Go</option>
-      <option>Asus ME173X-1B114A FonePad</option>
-      <option>Asus MemoPad blanche</option>
-      <option>Dell Latitude 10'' Pro</option>
-      <option>Dell Streak 7</option>
-      <option>Fujitsu VFY</option>
-      <option>Google Nexus 10</option>
-      <option>Google Nexus 7</option>
-    </select>
-  </div>
-</div>
-
 </fieldset>
     
     <input type="submit" name="Rechercher"/>
 </form>
 
-{{dump(query)}}
+<table class="table">
+    <caption> Résultats </caption>
+    <tr>
+        <th> Référence </th>
+        <th> Prix </th>
+    </tr>
+    
+    {% for entity in entities %}
+    <tr>
+        <td> <a href="#" onclick="$('#fiche').load('/redac-tech-topic-map/web/index.php/fiche/{{(entity.0)|replace({'http://psi.ontopedia.net/': ''}) }}');return false;">{{entity.1}}</a></td>
+        <td> {{entity.2}} </td>
+    </tr>
+    {% endfor %}
+</table>
 
-{{dump(entities)}}
+<div id="fiche"></div>
+
 
 
 
