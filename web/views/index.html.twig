@@ -283,7 +283,7 @@
     
     {% for entity in entities %}
     <tr> 
-        <td> <a href="index.php/fiche/{{entity.0|replace({'http://psi.ontepedia.net/': ''})}}">{{entity.1}}</a></td> 
+        <td> <a href="index.php/fiche/{{entity.0|replace({'http://psi.ontepedia.net/': ''})}}/{{entity.1}}">{{entity.1}}</a></td> 
         <td> {{entity.2}} </td> 
         <td> {{entity.3}} </td> 
     </tr> 

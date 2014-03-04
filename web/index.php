@@ -72,7 +72,7 @@ $app->match('/', function (Request $request, Application $app){
 })
 ->method('GET|POST');
 
-$app->get('/fiche/{id}', function (Application $app, $id){
+$app->get('/fiche/{id}/{reference}', function (Application $app, $id, $reference){
     $query = new Query();
     $query->init('ordinateursportables2602.xtm');
     
@@ -101,6 +101,7 @@ o:o01(o:'.$id.', $PRICE)}
     
     return $app['twig']->render('fiche.html.twig', array(
         'query' => $queryString,
+        'reference' => $reference,
         'fiche' => $fiche[1]
     ));
 });
