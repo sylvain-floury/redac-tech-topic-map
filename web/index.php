@@ -32,13 +32,17 @@ $app->match('/', function (Request $request, Application $app){
     
     
     $queryBuilder = new QueryBuilder('$machine');
-    $queryBuilder->select('$ID', '$machine');
+    $queryBuilder->select('$ID', '$machine', '$prix');
     $queryBuilder->where($queryBuilder->addOr('consommable', 'apourconsommable', 'estleconsommablede', $consommable));
+    $queryBuilder->addAnd($queryBuilder->addOr('preparation', 'apourpreparation', 'estlapreparationde', $preparation));
+    $queryBuilder->join('prix', '$prix');
     
     $query->setQuery($queryBuilder->build());
     
     $csvManager = new Csv();
     $csvManager->import($query->execute());
+    
+    $result = $csvManager->export();
     
     $test = $request->get('query');
     
@@ -46,8 +50,8 @@ $app->match('/', function (Request $request, Application $app){
         'url' => $query->getQueryUrl(),
         'query' => $queryBuilder->build(),
         'topic' => $request->get('topic'),
-        'fileContent' => $csvManager->getCsvString(),
-        'arrayContent' => $csvManager->export(),
+        'headers' => array_shift($result),
+        'entities' => $result,
     ));
 })
 ->method('GET|POST');
@@ -58,19 +62,15 @@ $app->get('/detail', function (Request $request, Application $app){
     $ref = 'o:03';
     
     $stringQuery = 'using o for i"http://psi.ontopedia.net/"
-o:a08($CPU: o:r08b, '.$ref.' : o:r08a),
-o:a17($FREQUENCE_DU_PROCESSEUR: o:r17a, '.$ref.' : o:r17b),
-o:a07($CAPACITE_RAM: o:r07b, '.$ref.' : o:r07a),
-o:a13($CAPACITE_MAX_RAM: o:r13a, '.$ref.' : o:r13b),
-o:a14($CAPACITE_DU_DD: o:r14b, '.$ref.' : o:r14a),
-o:a09($TECHNOLOGIE_DU_DD: o:r09b, '.$ref.' : o:r09a),
-o:a18($RESOLUTION_ECRAN: o:r18a, '.$ref.' : o:r18b),
-o:a19($CAMERA_RESOLUTION: o:r19a, '.$ref.' : o:r19b),
-o:a06($COULEUR: o:r06b, '.$ref.' : o:r06a),
-o:a01($FABRICANT: o:r01a, '.$ref.' : o:r01b),
-o:a03($OS_INSTALLE: o:r03b, '.$ref.' : o:r03a),
-{o:o02('.$ref.', $WEIGHT),
-o:o01('.$ref.', $PRICE)}?';
+o:prix (o:YY1204FDPIXIE, $prix)
+o:consommable ($consommable, o:apourconsommable, o:YY1204FDPIXIE, o:estleconsommablede)
+o:preparation ($preparation, o:estlapreparationde, o:YY1204FDPIXIE, o:apourpreparation)
+o:pression ($pression, o:apourpression, o:YY1204FDPIXIE, o:estlapressionde)
+o:garantie ($garantie, o:apourgarantie, o:YY1204FDPIXIE, o:estlagarantiede)
+o:puissance ($puissance, o:apourpuissance, o:YY1204FDPIXIE, o:estlapuissancede)
+o:marque ($marque, o:estlamarquede, o:YY1204FDPIXIE, o:apourmarque)
+o:couleur (o:YY1204FDPIXIE, $couleur)
+o:reference (o:YY1204FDPIXIE, $reference)?';
     
     $query->setQuery($stringQuery);
     

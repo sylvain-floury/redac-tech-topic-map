@@ -96,7 +96,7 @@
     </div>
     <div id="collapseFive" class="panel-collapse collapse in">
       <div class="panel-body">
-        <select class="form-control">
+        <select class="form-control" name="capacite[]">
           <option>Faites votre choix</option>
           <option>6 tasses</option>
           <option>8 tasses</option>
@@ -118,20 +118,20 @@
     <caption> Résultats </caption> 
     <tr> 
         <th> Référence </th> 
-        <th> Marque </th> 
         <th> Prix </th> 
     </tr> 
+    {% for entity in entities %}
     <tr> 
-        <td> MacBook Air 13.3 256Go (http://psi.ontopedia.net/03)</td> 
-        <td>Apple o:a01($MARQUE : o:r01a, o:03 : o:r01b)? </td> 
-        <td> 1299€ o:o01(o:o03, $PRIX)? </td> 
+        <td> <a href="index.php/fiche/{{entity.0|replace({'http://psi.ontepedia.net/': ''})}}/{{entity.1}}">{{entity.1}}</a></td> 
+        <td> {{entity.2}} </td> 
     </tr> 
+    {% endfor %}
 </table>
 
 {{dump(query)}}
 
 {#url}}
-
+{{dump(entities)}}
 {{dump(fileContent)}}
 
 {{dump(arrayContent)#}
